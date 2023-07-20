@@ -1,6 +1,11 @@
 import mongoose from "mongoose";
 
 const postSchema = new mongoose.Schema({
+  postUserId: {
+    type: String,
+    required: true,
+    unique: false,
+  },
   postTitle: {
     type: String,
     required: [true, "Please provide a username"],
@@ -11,6 +16,10 @@ const postSchema = new mongoose.Schema({
     required: [true, "Please provide a email"],
     unique: true,
   },
+  postDateAdded: {
+    type: String,
+  },
+
   published: {
     type: Boolean,
     default: true,

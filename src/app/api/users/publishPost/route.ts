@@ -11,7 +11,7 @@ connect()
 export async function POST(request: NextRequest){
     try {
         const reqBody = await request.json()
-        const {postTitle, postText, published} = reqBody
+        const {postUserId, postTitle, postText, postDateAdded, published} = reqBody
 
         console.log(reqBody);
 
@@ -23,8 +23,10 @@ export async function POST(request: NextRequest){
         }
 
         const newPost = new Post({
+            postUserId,
             postTitle,
             postText,
+            postDateAdded,
             published,
         })
 
